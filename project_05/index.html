@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Website</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fff;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 100px;
+      }
+
+      .logo:hover {
+        cursor: pointer;
+      }
+
+      .menu-icon {
+        padding: 12px;
+        background-color: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .menu-icon:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+      }
+
+      .one {
+        padding: 0px 150px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 70px;
+      }
+
+      .one img {
+        height: 500px;
+        border-radius: 50%;
+        margin-right: 60px;
+      }
+
+      .food-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+      }
+
+      .off-text {
+        padding: 10px 24px;
+        background-color: green;
+        color: white;
+        align-items: start;
+        margin-bottom: 40px;
+      }
+
+      .food-details h1 {
+        font-size: 70px;
+        color: black;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .food-details .description {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 30px;
+        font-weight: 500;
+      }
+
+      .food-details button {
+        padding: 12px 24px;
+        border-radius: 4px;
+        background-color: #ffc066;
+        font-size: 20px;
+        color: white;
+        border: none;
+      }
+
+      .food-details button:hover {
+        background-color: #ff8c00;
+        cursor: pointer;
+      }
+
+      .two {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px 260px;
+        margin-bottom: 40px;
+      }
+
+      .point {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        max-width: 280px;
+      }
+
+      .point img {
+        height: 60px;
+        width: 60px;
+        margin-right: 12px;
+      }
+
+      .point .t-d {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+      }
+
+      .t-d .title {
+        font-size: 20px;
+        font-weight: 700px;
+        margin-bottom: 4px;
+      }
+
+      .t-d .description {
+        font-size: 14px;
+        color: #333;
+        font-weight: 400;
+      }
+
+      .three {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 70px 120px;
+      }
+
+      .three p {
+        padding: 10px 20px;
+        background-color: green;
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 24px;
+      }
+
+      .three h3 {
+        font-size: 36px;
+        color: #000;
+        margin-bottom: 40px;
+      }
+
+      .grid-image {
+        border-radius: 10px;
+        transition: 0.2s ease-in-out;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+      }
+
+      .grid-image:hover {
+        transform: scale(1.05);
+        transition: 0.2s ease-in-out;
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-areas:
+          'I1 I1 I2 I3'
+          'I1 I1 I2 I7'
+          'I4 I5 I6 I7';
+        height: 800px;
+        width: 100%;
+      }
+
+      .grid > div {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .item1 {
+        grid-area: I1;
+      }
+      .item2 {
+        grid-area: I2;
+      }
+      .item3 {
+        grid-area: I3;
+      }
+      .item4 {
+        grid-area: I4;
+      }
+      .item5 {
+        grid-area: I5;
+      }
+      .item6 {
+        grid-area: I6;
+      }
+      .item7 {
+        grid-area: I7;
+      }
+
+      footer {
+        background-color: #fff0db;
+        height: 350px;
+        width: 100%;
+        padding: 60px 200px;
+        display: flex;
+        flex-direction: row;
+        gap: 150px;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        margin-top: 30px;
+      }
+
+      .links span {
+        font-size: 24px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 20px;
+      }
+
+      .links ul {
+        list-style-type: none;
+      }
+
+      .links ul li {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+        padding: 4px 0px;
+      }
+
+      .links ul li:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 5%);
+        padding: 4px 0px;
+      }
+
+      .news-letter {
+        width: 400px;
+      }
+
+      .news-letter input {
+        padding: 16px;
+        border-radius: 4px;
+        border: none;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      .news-letter .icons {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+      }
+
+      .icons img {
+        height: 50px;
+        width: 50px;
+        object-fit: fill;
+        padding: 12px;
+      }
+
+      .icons img:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 5%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <div class="logo">
+        <img src="images/logo.png" alt="the logo image" />
+      </div>
+      <div class="menu-icon">
+        <img src="images/menu.svg" alt="the menu icon" />
+      </div>
+    </header>
+
+    <!-- section one -->
+    <section class="one">
+      <img src="images/food.jpg" alt="the food image" />
+      <div class="food-details">
+        <p class="off-text">50 % OFF All Products</p>
+        <h1>Enjoy Your Delicious Food</h1>
+        <p class="description">
+          Quisque velit nisi, pretium ut lacinia in, elementum id enim. Mauris
+          blandit aliquet elit, eget tincidunt nibh pulvinar a.
+        </p>
+        <button>Explore Now</button>
+      </div>
+    </section>
+
+    <!-- section two -->
+    <section class="two">
+      <!-- Discount Voucher -->
+      <div class="point d-voucher">
+        <div class="icon">
+          <img src="images/voucher.png" alt="the discount voucher image" />
+        </div>
+        <div class="t-d">
+          <div class="title">Discount Voucher</div>
+          <div class="description">
+            Quisque velit nisi, pretium ut lacinia in df fasf
+          </div>
+        </div>
+      </div>
+
+      <!-- Healthy Food -->
+      <div class="point h-food">
+        <img src="images/food.png" alt="the healthy food image" />
+        <div class="t-d">
+          <div class="title">Fresh Healthy Food</div>
+          <div class="description">
+            Quisque velit nisi, pretium ut lacinia in df fasf
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Delivery -->
+      <div class="point h-delivery">
+        <div class="icon">
+          <img src="images/delivery.png" alt="the home delivery image" />
+        </div>
+        <div class="t-d">
+          <div class="title">Fast Home Delivery</div>
+          <div class="description">
+            Quisque velit nisi, pretium ut lacinia in df fasf
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr />
+
+    <!-- section three -->
+    <section class="three">
+      <p>Our Menu</p>
+      <h3>Explore Our Menu</h3>
+      <div class="grid">
+        <!-- One -->
+        <div class="item1">
+          <img class="grid-image" src="images/one.jpg" alt="image 1" />
+        </div>
+
+        <!-- Two -->
+        <div class="item2">
+          <img class="grid-image" src="images/two.jpg" alt="image 1" />
+        </div>
+
+        <!-- Three -->
+        <div class="item3">
+          <img class="grid-image" src="images/three.jpg" alt="image 1" />
+        </div>
+
+        <!-- Four -->
+        <div class="item4">
+          <img class="grid-image" src="images/four.jpg" alt="image 1" />
+        </div>
+
+        <!-- Five -->
+        <div class="item5">
+          <img class="grid-image" src="images/five.jpg" alt="image 1" />
+        </div>
+
+        <!-- Six -->
+        <div class="item6">
+          <img class="grid-image" src="images/one.jpg" alt="image 6" />
+        </div>
+
+        <!-- Seven -->
+        <div class="item7">
+          <img class="grid-image" src="images/two.jpg" alt="image 7" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Four -->
+    <footer>
+      <!-- logo -->
+      <div class="logo">
+        <img src="images/logo.png" alt="" />
+      </div>
+
+      <!-- Main Links -->
+      <div class="links main-links">
+        <span>Main Links</span>
+        <ul>
+          <li>Order Tracking</li>
+          <li>New Order</li>
+          <li>Contact Us</li>
+          <li>News & Blogs</li>
+        </ul>
+      </div>
+
+      <div class="links support-links">
+        <span>Support Links</span>
+        <ul>
+          <li>About Us</li>
+          <li>Privacy Policy</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+
+      <!-- Join our Newsletter -->
+      <div class="links news-letter">
+        <span>Join Our Newsletter</span>
+        <input type="email" placeholder="Enter your email" />
+        <span>Follow Us</span>
+        <div class="icons">
+          <img src="images/fb.svg" alt="facebook icon" />
+          <img src="images/insta.svg" alt="instagram icon" />
+          <img src="images/twitter.svg" alt="twitter icon" />
+          <img src="images/yt.svg" alt="Youtube icon" />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
