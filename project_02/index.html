@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .application-form {
+        padding: 40px;
+      }
+
+      .heading-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: end;
+      }
+
+      .heading-text {
+        margin-bottom: 30px;
+      }
+
+      .heading-text h1 {
+        font-size: 58px;
+        margin-right: 20px;
+      }
+
+      .heading-text span {
+        font-size: 30px;
+      }
+
+      .first-last-name-field {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+      }
+
+      .field.first-name {
+        margin-right: 40px;
+      }
+
+      .field label {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .field input {
+        height: 50px;
+        width: 400px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding-left: 16px;
+      }
+
+      .email-job-role-field {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+      }
+
+      .field.email {
+        margin-right: 40px;
+      }
+
+      .job-role select {
+        height: 50px;
+        width: 400px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        font-size: 18px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .address-container {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        max-width: 850px;
+      }
+
+      .address-container label {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .address-field {
+        border: 1px solid #000;
+        border-radius: 2px;
+        padding: 16px;
+        font-size: 18px;
+        resize: none;
+      }
+
+      .city-pincode {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        padding: 100px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="application-form">
+      <div class="heading-text">
+        <h1>Job Application</h1>
+        <span>(Web)</span>
+      </div>
+
+      <!-- first and last name field -->
+      <div class="first-last-name-field">
+        <div class="field first-name">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" />
+        </div>
+        <div class="field last-name">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" />
+        </div>
+      </div>
+
+      <!-- Email and Job role -->
+      <div class="email-job-role-field">
+        <div class="field email">
+          <label for="email">Email</label>
+          <input type="email" id="email" />
+        </div>
+        <div class="field job-role">
+          <label for="job-role">Job Role</label>
+          <select id="job-role" name="job-role">
+            <option value="Senior">Senior Developer</option>
+            <option value="Junior">Junior Developer</option>
+            <option value="Designer">UI Designer</option>
+            <option value="HR">HR</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="address-container">
+        <label for="address">Address</label>
+        <textarea
+          type="address-field"
+          id="address-field"
+          class="address-field"
+          placeholder="Type your message here..."
+          rows="8"
+        />
+      </div>
+    </section>
+  </body>
+</html>
